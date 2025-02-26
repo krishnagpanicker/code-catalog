@@ -18,10 +18,10 @@ const StyledNav = styled.nav`
 
 const LogoText = styled.div`
     font-family: 'Inter', sans-serif;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 700;
     text-decoration: none;
-    padding-top: 10px;
+    padding-top: 11px;
 `;
 
 const NavLeft = styled.div`
@@ -96,7 +96,7 @@ export default function Header() {
     return (
         <StyledNav>
             <NavLeft>
-                <Logo href="./">
+                <Logo href="/">
                     <Image width={50} height={50} src="/images/thing.png"></Image>
                     <LogoText>Code Catalog</LogoText>
                 </Logo>
