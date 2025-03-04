@@ -1,5 +1,7 @@
 import styled, { StyleSheetContext } from 'styled-components';
-import Header from '../components/Header';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('../components/Header'), { ssr: false })
 
 const Body = styled.main`
     padding-top: 70px;
@@ -9,10 +11,6 @@ const Body = styled.main`
 
 const Landing = styled.div`
     background-image: url('/images/landing.jpg');
-`;
-
-const SignUp = styled.div`
-    
 `;
 
 const MainText = styled.h1`
@@ -27,7 +25,7 @@ const MainText = styled.h1`
 export default function App() {
     return (
         <>
-            <Header></Header>
+            <Navbar></Navbar>
             <Body>
                 <Landing>
                     <MainText>YOUR GATEWAY TO PROGRAMMING IN YOUR FAVORITE LANGUAGES.</MainText>

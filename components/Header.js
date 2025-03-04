@@ -1,6 +1,9 @@
 import styled, {StyleSheetContext} from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Context } from '@/context/StateContext';
+import React from 'react';
+import { useStateContext } from '@/context/StateContext';
 
 
 const StyledNav = styled.nav`
@@ -31,7 +34,7 @@ const NavLeft = styled.div`
     gap: 20px;
 `;
 
-const NavRight = styled.div`
+const NavRightOne = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;  
@@ -93,11 +96,14 @@ const CreateAccount = styled(Link)`
 `;
 
 export default function Header() {
+    const { user, setUser } = useStateContext();
+    
+
     return (
         <StyledNav>
             <NavLeft>
                 <Logo href="/">
-                    <Image width={50} height={50} src="/images/thing.png"></Image>
+                    <Image width={50} height={50} src="/images/thing.png"/>
                     <LogoText>Code Catalog</LogoText>
                 </Logo>
                 <NavMenu>
@@ -105,10 +111,11 @@ export default function Header() {
                     <MenuItem href="/purpose">Purpose Specific</MenuItem>
                 </NavMenu>
             </NavLeft>
-            <NavRight>
-                <Login href="/">Login</Login>
-                <CreateAccount href="/">Create Account</CreateAccount>
-            </NavRight>
+            
+            <NavRightOne>
+                <Login href="/authentication/login">Login</Login>
+                <CreateAccount href="/authentication/signup">Create Account</CreateAccount>
+            </NavRightOne>
         </StyledNav>
     );
 }

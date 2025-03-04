@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { createGlobalStyle } from 'styled-components';
+import { StateContext } from '@/context/StateContext';
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -16,8 +17,14 @@ const GlobalStyle = createGlobalStyle`
 export default function App({ Component, pageProps }) {
     return (
         <>
+            <Head>
+                <title>Code Catalog</title>
+                <meta name='description' content='Guide to start coding in your favorite programming languages.'></meta>
+            </Head>
             <GlobalStyle />
-            <Component {...pageProps}/>
+            <StateContext>
+                <Component {...pageProps}/>
+            </StateContext>
         </>
     );
 }

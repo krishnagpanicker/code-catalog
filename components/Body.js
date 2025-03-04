@@ -8,7 +8,6 @@ const Main = styled.main`
 export default function Body() {
     return(
         <Main>
-            YUH
         </Main>
     );
 }
